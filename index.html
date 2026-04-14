@@ -111,6 +111,18 @@ body::before {
   animation: slideUp 0.8s ease 0.7s both;
 }
 
+.hero-name {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 14px;
+  opacity: 0.85;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.75s both;
+}
+
 .hero-divider {
   display: flex; align-items: center; gap: 12px;
   margin: 24px auto;
@@ -314,6 +326,12 @@ body::before {
   color: var(--gold); text-transform: uppercase;
 }
 
+.card-photo { position: relative; overflow: hidden; border-top: 1px solid rgba(184,147,58,0.25); }
+.card-photo img { width:100%; height:140px; object-fit:cover; object-position:center; display:block; transition: transform 0.6s ease; }
+.card-photo:active img { transform: scale(1.04); }
+.card-photo::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(184,147,58,0.15), transparent); pointer-events:none; }
+.card-photo img.photo-4 { object-fit: contain; object-position: left center; background: var(--cream); }
+
 /* ── CLOSING ── */
 .closing {
   position: relative; z-index:1;
@@ -352,6 +370,19 @@ body::before {
 }
 .closing-author.vis { opacity:0.8; }
 
+.closing-name {
+  margin-top: 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3.5px;
+  color: rgba(232,201,122,0.8);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
+.closing-name.vis { opacity: 0.88; transform: translateY(0); }
+
 /* ── FOOTER ── */
 footer {
   background: var(--dark);
@@ -363,6 +394,15 @@ footer p {
   font-family: 'Jost', sans-serif;
   font-size: 10px; letter-spacing: 3px;
   color: rgba(242,228,192,0.4); text-transform: uppercase;
+}
+
+.footer-name {
+  margin-top: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(232,201,122,0.72);
+  text-transform: uppercase;
 }
 
 @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
@@ -397,8 +437,9 @@ footer p {
   <p class="hero-script">Minha Jornada</p>
   <h1 class="hero-title">na AMF & FOIL</h1>
   <p class="hero-script2">Uma trajetória do ser</p>
+  <p class="hero-name">Lorenzo Paludett Benedetti</p>
   <div class="hero-divider"><span></span></div>
-  <p class="hero-sub">Cada etapa desta linha do tempo representa uma transformação real — do primeiro contato com a Ontopsicologia até quem sou hoje.</p>
+  <p class="hero-sub">Cada etapa desta linha do tempo representa uma parte da minha transformação na AMF com o auxílio da metodologia FOIL — do primeiro contato até quem sou hoje.</p>
   <div class="hero-scroll">
     <span>Explorar</span>
     <div class="scroll-arrow"></div>
@@ -433,6 +474,9 @@ footer p {
       <div class="card-text">A primeira vez que vim à AMF me apaixonei pelo local — parecia que tudo na faculdade impulsionava meu crescimento. A estrutura me encantava, mas como nunca havia trabalhado, era muito tímida e nunca tinha ficado longe dos meus pais, pensei em hesitar. Pela minha ambição, decidi fazer faculdade na AMF, e isso considero minha primeira vitória aqui.</div>
       <span class="card-tag">Início</span>
     </div>
+    <div class="card-photo">
+      <img src="1.jpeg" alt="Chegada na AMF" loading="lazy" decoding="async">
+    </div>
   </div>
 
   <div class="year-pill"><span>2025</span></div>
@@ -446,6 +490,9 @@ footer p {
       <div class="card-text">Durante a Students Week, ainda na primeira semana, um membro do marketing me convidou para uma entrevista. Para mim era tudo muito novo — começar a trabalhar com apenas uma semana de faculdade parecia algo muito desafiador. Mas me desafiei, fiz a entrevista e passei. No meu primeiro trabalho vivi experiências que nunca imaginei e melhorei pontos pessoais como comunicação e autonomia.</div>
       <span class="card-tag">FOIL</span>
     </div>
+    <div class="card-photo">
+      <img src="2.jpeg" alt="Primeiro trabalho em marketing" loading="lazy" decoding="async">
+    </div>
   </div>
 
   <div class="tl-card left">
@@ -456,6 +503,9 @@ footer p {
       <div class="card-title">Code Race</div>
       <div class="card-text">Foi o primeiro grande choque na área da tecnologia. Sem nenhuma disciplina de desenvolvimento e sem saber fazer nem um site simples, me desafiei a participar do Code Race e tentar produzir algo real até o final. Eu e minha equipe conseguimos entregar um bom projeto, provando nossa capacidade e evolução, e esse evento me incentivou muito a melhorar na área.</div>
       <span class="card-tag">Tecnologia</span>
+    </div>
+    <div class="card-photo">
+      <img src="3.jpeg" alt="Participação no Code Race" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -468,6 +518,9 @@ footer p {
       <div class="card-text">Após o Code Race comecei a me aprofundar em desenvolvimento e a estudar bastante no meu tempo livre. Quando surgiu a oportunidade de me inscrever no TecnoAMF, inicialmente pensei que não era capaz e nem me inscrevi. Com o adiamento do processo seletivo, pensei: por que não? Fiz a entrevista, passei, e isso foi muito gratificante — mostrou meu esforço sendo recompensado e que eu realmente podia acreditar em mim.</div>
       <span class="card-tag">Desenvolvimento</span>
     </div>
+    <div class="card-photo">
+      <img class="photo-4" src="4.jpeg" alt="Processo e conquista no TecnoAMF" loading="lazy" decoding="async">
+    </div>
   </div>
 
   <div class="tl-card left">
@@ -478,6 +531,9 @@ footer p {
       <div class="card-title">Viagem FOIL Brasil — São Paulo</div>
       <div class="card-text">A viagem FOIL Brasil em São Paulo foi sensacional. Aprendi muito com grandes empresários — como Fábio Câmara, que até hoje carrego como referência na minha vida profissional. Conheci gigantes empresas de tecnologia do Brasil e aprendi que o mundo vai muito além da bolha do interior do Rio Grande do Sul. Ver novas culturas e diferentes formas de funcionamento na maior cidade da América Latina me ensinou conceitos que nunca vou esquecer.</div>
       <span class="card-tag">FOIL</span>
+    </div>
+    <div class="card-photo">
+      <img src="5.jpeg" alt="Viagem FOIL Brasil em São Paulo" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -492,6 +548,9 @@ footer p {
       <div class="card-text">Por convite do professor Puntel, na disciplina de férias, participei do BytePapo — o podcast do curso de Sistemas de Informação. No ensino médio eu tinha dificuldade até para pedir um lanche no McDonald's sozinho; sempre tive um problema muito grande com comunicação. Participar de um podcast de 1 hora, respondendo perguntas que não esperava, foi extremamente gratificante e mostrou minha evolução desde que entrei na AMF.</div>
       <span class="card-tag">Evolução</span>
     </div>
+    <div class="card-photo">
+      <img src="6.jpeg" alt="Participação no BytePapo" loading="lazy" decoding="async">
+    </div>
   </div>
 
 </div>
@@ -501,6 +560,7 @@ footer p {
   <p class="closing-script">Continua...</p>
   <p class="closing-quote">"O homem é artífice positivo da própria vida e como consequência de bem-estar, qualidade de vida e evolução do contexto em que atua."</p>
   <p class="closing-author">— Antonio Meneghetti</p>
+  <p class="closing-name">Lorenzo Paludett Benedetti</p>
 </section>
 
 <footer>
@@ -513,7 +573,7 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(
-  '.tl-card, .year-pill, .section-label, .section-title, .section-desc, .closing-script, .closing-quote, .closing-author'
+  '.tl-card, .year-pill, .section-label, .section-title, .section-desc, .closing-script, .closing-quote, .closing-author, .closing-name'
 ).forEach(el => io.observe(el));
 </script>
 </body>
