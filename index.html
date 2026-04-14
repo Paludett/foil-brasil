@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Minha Jornada · AMF & FOIL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+:root {
+  --gold: #B8933A;
+  --gold2: #D4AA55;
+  --gold3: #E8C97A;
+  --gold-pale: #F2E4C0;
+  --cream: #F7F4EF;
+  --cream2: #EDE8DF;
+  --gray-text: #5A5550;
+  --dark: #1E1A14;
+  --ink: #2C2618;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 32px 80px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, #e8dcc8 0%, transparent 70%),
+    linear-gradient(180deg, #EDECE8 0%, var(--cream) 100%);
+}
+
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle 300px at 10% 20%, rgba(184,147,58,0.06) 0%, transparent 60%),
+    radial-gradient(circle 200px at 90% 80%, rgba(184,147,58,0.05) 0%, transparent 60%);
+}
+
+.hero-badge {
+  width: 110px; height: 110px;
+  background: radial-gradient(circle at 35% 35%, #E8C97A, #B8933A 50%, #8B6820);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 32px;
+  box-shadow: 0 8px 32px rgba(184,147,58,0.35), 0 2px 8px rgba(0,0,0,0.1);
+  position: relative; z-index: 1;
+  animation: badgePop 1s cubic-bezier(.34,1.56,.64,1) 0.2s both;
+}
+
+.hero-badge svg, .hero-badge img { width: 56px; height: 56px; opacity: 0.95; object-fit: contain; }
+
+@keyframes badgePop {
+  from { transform: scale(0.4) rotate(-15deg); opacity:0; }
+  to   { transform: scale(1) rotate(0deg); opacity:1; }
+}
+
+.hero-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(28px, 8vw, 42px);
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.5s both;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(22px, 6.5vw, 34px);
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.6s both;
+}
+
+.hero-script2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(18px, 5.5vw, 28px);
+  color: var(--gold);
+  margin-top: -2px;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.7s both;
+}
+
+.hero-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 24px auto;
+  max-width: 220px;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.8s both;
+}
+.hero-divider::before, .hero-divider::after {
+  content:''; flex:1; height:1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.hero-divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
+.hero-divider span { width:7px; height:7px; background: var(--gold); transform: rotate(45deg); flex-shrink:0; }
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(16px, 4.5vw, 20px);
+  color: var(--gray-text);
+  line-height: 1.7;
+  max-width: 320px;
+  position: relative; z-index:1;
+  animation: slideUp 0.8s ease 0.9s both;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap:6px;
+  z-index:1;
+  animation: fadeIn 1s ease 1.5s both;
+}
+.hero-scroll span {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 4px;
+  color: var(--gold); text-transform: uppercase; opacity: 0.7;
+}
+.scroll-arrow {
+  width:16px; height:16px;
+  border-right: 1.5px solid var(--gold);
+  border-bottom: 1.5px solid var(--gold);
+  transform: rotate(45deg);
+  animation: bounce 1.5s ease infinite;
+}
+@keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+
+/* ── AMF BAR ── */
+.amf-bar {
+  background: var(--dark);
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  position: relative; z-index:1;
+}
+.amf-bar::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold2), var(--gold3), var(--gold2), transparent);
+}
+.amf-logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 5px; color: var(--gold-pale);
+  text-transform: uppercase; opacity: 0.9;
+}
+.amf-dot { width:4px; height:4px; background:var(--gold); border-radius:50%; opacity:0.6; }
+
+/* ── SECTION INTRO ── */
+.section-intro {
+  padding: 52px 28px 20px;
+  text-align: center;
+  position: relative; z-index:1;
+}
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 5px;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-label.vis { opacity:1; transform:translateY(0); }
+
+.section-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(30px, 9vw, 46px);
+  color: var(--dark); line-height: 1.1;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;
+}
+.section-title.vis { opacity:1; transform:translateY(0); }
+.section-title em { color: var(--gold); font-style: normal; }
+
+.section-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px; color: var(--gray-text);
+  line-height: 1.7; margin-top: 14px;
+  max-width: 340px; margin-inline: auto;
+  opacity:0; transform:translateY(12px);
+  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+.section-desc.vis { opacity:1; transform:translateY(0); }
+
+/* ── TIMELINE ── */
+.timeline-wrap {
+  padding: 32px 20px 60px;
+  position: relative; z-index:1;
+  max-width: 480px; margin: 0 auto;
+}
+.timeline-wrap::before {
+  content:''; position:absolute;
+  left: 50%; top: 0; bottom: 60px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, var(--gold2) 8%, var(--gold2) 92%, transparent 100%);
+  transform: translateX(-50%);
+}
+
+.year-pill {
+  position: relative; z-index:2;
+  text-align:center; margin: 8px 0 28px;
+  opacity:0; transform:scale(0.85);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.year-pill.vis { opacity:1; transform:scale(1); }
+.year-pill span {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 4px;
+  color: var(--cream);
+  background: linear-gradient(135deg, var(--dark) 0%, #3a3020 100%);
+  border: 1px solid var(--gold);
+  padding: 6px 18px;
+  display: inline-block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.tl-card {
+  position: relative;
+  width: 46%;
+  margin-bottom: 32px;
+  background: white;
+  border: 1px solid rgba(184,147,58,0.2);
+  box-shadow: 0 2px 12px rgba(90,70,20,0.08), 0 6px 24px rgba(90,70,20,0.04);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease;
+}
+.tl-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold3));
+}
+.tl-card.left { margin-left: 3%; transform: translateX(-20px); }
+.tl-card.right { margin-left: auto; margin-right: 3%; transform: translateX(20px); }
+.tl-card.vis { opacity:1; transform: translateX(0); }
+
+.tl-card::after {
+  content:''; position:absolute; top: 18px;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px var(--gold);
+}
+.tl-card.left::after { right: -29px; }
+.tl-card.right::after { left: -29px; }
+
+.tl-card .hline {
+  position:absolute; top:22px; height:1px; opacity:0.4;
+}
+.tl-card.left .hline { right:-18px; width:18px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.tl-card.right .hline { left:-18px; width:18px; background: linear-gradient(90deg, var(--gold), transparent); }
+
+.card-inner { padding: 20px 16px 18px; }
+
+.card-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px; font-size: 16px;
+}
+.card-date {
+  font-family: 'Cinzel', serif;
+  font-size: 10.5px; letter-spacing: 2.5px;
+  color: var(--gold); text-transform: uppercase; margin-bottom: 5px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 600;
+  color: var(--dark); line-height: 1.35; margin-bottom: 8px;
+}
+.card-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px; font-weight: 400;
+  color: var(--gray-text); line-height: 1.75;
+}
+.card-tag {
+  display:inline-block; margin-top:10px;
+  padding: 3px 10px;
+  background: var(--cream2);
+  border: 1px solid rgba(184,147,58,0.25);
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 2px;
+  color: var(--gold); text-transform: uppercase;
+}
+
+/* ── CLOSING ── */
+.closing {
+  position: relative; z-index:1;
+  background: linear-gradient(135deg, #1E1A14 0%, #2C2315 100%);
+  padding: 52px 32px;
+  text-align: center; overflow: hidden;
+}
+.closing::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold2), var(--gold3), var(--gold2), transparent);
+}
+.closing-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(26px, 7vw, 36px);
+  color: var(--gold3); margin-bottom: 16px;
+  opacity:0; transform:translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.closing-script.vis { opacity:1; transform:translateY(0); }
+.closing-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(15px, 4vw, 18px);
+  color: rgba(242,228,192,0.85);
+  line-height: 1.8;
+  max-width: 320px; margin: 0 auto 20px;
+  opacity:0; transform:translateY(12px);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+}
+.closing-quote.vis { opacity:1; transform:translateY(0); }
+.closing-author {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 4px;
+  color: var(--gold); text-transform: uppercase;
+  opacity:0; transition: opacity 0.8s ease 0.3s;
+}
+.closing-author.vis { opacity:0.8; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 20px 24px; text-align:center;
+  position:relative; z-index:1;
+  border-top: 1px solid rgba(184,147,58,0.2);
+}
+footer p {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px; letter-spacing: 3px;
+  color: rgba(242,228,192,0.4); text-transform: uppercase;
+}
+
+@keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+
+.particle {
+  position:fixed; border-radius:50%;
+  background: var(--gold); opacity:0;
+  pointer-events:none; z-index:0;
+  animation: floatP linear infinite;
+}
+@keyframes floatP {
+  0%  {opacity:0;transform:translateY(0) scale(0)}
+  10% {opacity:0.12;transform:translateY(-10px) scale(1)}
+  90% {opacity:0.06}
+  100%{opacity:0;transform:translateY(-120px) scale(0.5)}
+}
+</style>
+</head>
+<body>
+
+<div class="particle" style="width:4px;height:4px;left:15%;bottom:20%;animation-duration:8s;animation-delay:0s;"></div>
+<div class="particle" style="width:3px;height:3px;left:80%;bottom:15%;animation-duration:10s;animation-delay:2s;"></div>
+<div class="particle" style="width:5px;height:5px;left:50%;bottom:30%;animation-duration:12s;animation-delay:4s;"></div>
+<div class="particle" style="width:3px;height:3px;left:30%;bottom:10%;animation-duration:9s;animation-delay:1s;"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <img src="images-Photoroom.png" alt="Símbolo AMF" loading="eager" decoding="async">
+  </div>
+  <p class="hero-script">Minha Jornada</p>
+  <h1 class="hero-title">na AMF & FOIL</h1>
+  <p class="hero-script2">Uma trajetória do ser</p>
+  <div class="hero-divider"><span></span></div>
+  <p class="hero-sub">Cada etapa desta linha do tempo representa uma transformação real — do primeiro contato com a Ontopsicologia até quem sou hoje.</p>
+  <div class="hero-scroll">
+    <span>Explorar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- AMF BAR -->
+<div class="amf-bar">
+  <div class="amf-dot"></div>
+  <span class="amf-logo-text">Antonio Meneghetti Faculdade</span>
+  <div class="amf-dot"></div>
+</div>
+
+<!-- INTRO -->
+<div class="section-intro">
+  <p class="section-label">Março 2025 — Abril 2026</p>
+  <h2 class="section-title">Um ano de <em>evolução</em></h2>
+  <p class="section-desc">Da descoberta ao protagonismo — registros de uma jornada que ainda está sendo escrita.</p>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-wrap">
+
+  <div class="year-pill"><span>Início · 2024</span></div>
+
+  <div class="tl-card left">
+    <div class="hline"></div>
+    <div class="card-inner">
+      <div class="card-icon">🌱</div>
+      <div class="card-date">Dezembro · 2024</div>
+      <div class="card-title">Chegada</div>
+      <div class="card-text">A primeira vez que vim à AMF me apaixonei pelo local — parecia que tudo na faculdade impulsionava meu crescimento. A estrutura me encantava, mas como nunca havia trabalhado, era muito tímida e nunca tinha ficado longe dos meus pais, pensei em hesitar. Pela minha ambição, decidi fazer faculdade na AMF, e isso considero minha primeira vitória aqui.</div>
+      <span class="card-tag">Início</span>
+    </div>
+  </div>
+
+  <div class="year-pill"><span>Jornada · 2025</span></div>
+
+  <div class="tl-card right">
+    <div class="hline"></div>
+    <div class="card-inner">
+      <div class="card-icon">📣</div>
+      <div class="card-date">Março · 2025</div>
+      <div class="card-title">Primeiro Trabalho — Marketing</div>
+      <div class="card-text">Durante a Students Week, ainda na primeira semana, um membro do marketing me convidou para uma entrevista. Para mim era tudo muito novo — começar a trabalhar com apenas uma semana de faculdade parecia algo muito desafiador. Mas me desafiei, fiz a entrevista e passei. No meu primeiro trabalho vivi experiências que nunca imaginei e melhorei pontos pessoais como comunicação e autonomia.</div>
+      <span class="card-tag">FOIL</span>
+    </div>
+  </div>
+
+  <div class="tl-card left">
+    <div class="hline"></div>
+    <div class="card-inner">
+      <div class="card-icon">💻</div>
+      <div class="card-date">Junho · 2025</div>
+      <div class="card-title">Code Race</div>
+      <div class="card-text">Foi o primeiro grande choque na área da tecnologia. Sem nenhuma disciplina de desenvolvimento e sem saber fazer nem um site simples, me desafiei a participar do Code Race e tentar produzir algo real até o final. Eu e minha equipe conseguimos entregar um bom projeto, provando nossa capacidade e evolução, e esse evento me incentivou muito a melhorar na área.</div>
+      <span class="card-tag">Tecnologia</span>
+    </div>
+  </div>
+
+  <div class="tl-card right">
+    <div class="hline"></div>
+    <div class="card-inner">
+      <div class="card-icon">🚀</div>
+      <div class="card-date">Agosto · 2025</div>
+      <div class="card-title">TecnoAMF</div>
+      <div class="card-text">Após o Code Race comecei a me aprofundar em desenvolvimento e a estudar bastante no meu tempo livre. Quando surgiu a oportunidade de me inscrever no TecnoAMF, inicialmente pensei que não era capaz e nem me inscrevi. Com o adiamento do processo seletivo, pensei: por que não? Fiz a entrevista, passei, e isso foi muito gratificante — mostrou meu esforço sendo recompensado e que eu realmente podia acreditar em mim.</div>
+      <span class="card-tag">Desenvolvimento</span>
+    </div>
+  </div>
+
+  <div class="year-pill"><span>Evolução · 2026</span></div>
+
+  <div class="tl-card left">
+    <div class="hline"></div>
+    <div class="card-inner">
+      <div class="card-icon">🎙️</div>
+      <div class="card-date">Fevereiro · 2026</div>
+      <div class="card-title">BytePapo</div>
+      <div class="card-text">Por convite do professor Puntel, na disciplina de férias, participei do BytePapo — o podcast do curso de Sistemas de Informação. No ensino médio eu tinha dificuldade até para pedir um lanche no McDonald's sozinho; sempre tive um problema muito grande com comunicação. Participar de um podcast de 1 hora, respondendo perguntas que não esperava, foi extremamente gratificante e mostrou minha evolução desde que entrei na AMF.</div>
+      <span class="card-tag">Evolução</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- CLOSING -->
+<section class="closing">
+  <p class="closing-script">Continua...</p>
+  <p class="closing-quote">"O homem é artífice positivo da própria vida e como consequência de bem-estar, qualidade de vida e evolução do contexto em que atua."</p>
+  <p class="closing-author">— Antonio Meneghetti</p>
+</section>
+
+<footer>
+  <p>AMF · Fundação Antonio Meneghetti · Santa Maria, RS</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(
+  '.tl-card, .year-pill, .section-label, .section-title, .section-desc, .closing-script, .closing-quote, .closing-author'
+).forEach(el => io.observe(el));
+</script>
+</body>
+</html>
