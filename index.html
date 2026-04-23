@@ -5,422 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Minha Jornada · AMF & FOIL</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Dancing+Script:wght@500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-
-:root {
-  --gold: #B8933A;
-  --gold2: #D4AA55;
-  --gold3: #E8C97A;
-  --gold-pale: #F2E4C0;
-  --cream: #F7F4EF;
-  --cream2: #EDE8DF;
-  --gray-text: #5A5550;
-  --dark: #1E1A14;
-  --ink: #2C2618;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'Jost', sans-serif;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-body::before {
-  content:'';
-  position:fixed; inset:0;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events:none; z-index:0;
-}
-
-/* ── HERO ── */
-.hero {
-  position: relative;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 32px 80px;
-  text-align: center;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 30%, #e8dcc8 0%, transparent 70%),
-    linear-gradient(180deg, #EDECE8 0%, var(--cream) 100%);
-}
-
-.hero::before {
-  content:'';
-  position:absolute; inset:0;
-  background:
-    radial-gradient(circle 300px at 10% 20%, rgba(184,147,58,0.06) 0%, transparent 60%),
-    radial-gradient(circle 200px at 90% 80%, rgba(184,147,58,0.05) 0%, transparent 60%);
-}
-
-.hero-badge {
-  width: 110px; height: 110px;
-  background: radial-gradient(circle at 35% 35%, #E8C97A, #B8933A 50%, #8B6820);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 32px;
-  box-shadow: 0 8px 32px rgba(184,147,58,0.35), 0 2px 8px rgba(0,0,0,0.1);
-  position: relative; z-index: 1;
-  animation: badgePop 1s cubic-bezier(.34,1.56,.64,1) 0.2s both;
-}
-
-.hero-badge svg, .hero-badge img { width: 56px; height: 56px; opacity: 0.95; object-fit: contain; }
-
-@keyframes badgePop {
-  from { transform: scale(0.4) rotate(-15deg); opacity:0; }
-  to   { transform: scale(1) rotate(0deg); opacity:1; }
-}
-
-.hero-script {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(28px, 8vw, 42px);
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 4px;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.5s both;
-}
-
-.hero-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(22px, 6.5vw, 34px);
-  font-weight: 700;
-  color: var(--dark);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  line-height: 1.1;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.6s both;
-}
-
-.hero-script2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(18px, 5.5vw, 28px);
-  color: var(--gold);
-  margin-top: -2px;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.7s both;
-}
-
-.hero-name {
-  font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 3.5px;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-top: 14px;
-  opacity: 0.85;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.75s both;
-}
-
-.hero-divider {
-  display: flex; align-items: center; gap: 12px;
-  margin: 24px auto;
-  max-width: 220px;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.8s both;
-}
-.hero-divider::before, .hero-divider::after {
-  content:''; flex:1; height:1px;
-  background: linear-gradient(90deg, transparent, var(--gold));
-}
-.hero-divider::after { background: linear-gradient(90deg, var(--gold), transparent); }
-.hero-divider span { width:7px; height:7px; background: var(--gold); transform: rotate(45deg); flex-shrink:0; }
-
-.hero-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(16px, 4.5vw, 20px);
-  color: var(--gray-text);
-  line-height: 1.7;
-  max-width: 320px;
-  position: relative; z-index:1;
-  animation: slideUp 0.8s ease 0.9s both;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap:6px;
-  z-index:1;
-  animation: fadeIn 1s ease 1.5s both;
-}
-.hero-scroll span {
-  font-family: 'Cinzel', serif;
-  font-size: 9px; letter-spacing: 4px;
-  color: var(--gold); text-transform: uppercase; opacity: 0.7;
-}
-.scroll-arrow {
-  width:16px; height:16px;
-  border-right: 1.5px solid var(--gold);
-  border-bottom: 1.5px solid var(--gold);
-  transform: rotate(45deg);
-  animation: bounce 1.5s ease infinite;
-}
-@keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
-
-/* ── AMF BAR ── */
-.amf-bar {
-  background: var(--dark);
-  padding: 16px 24px;
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  position: relative; z-index:1;
-}
-.amf-bar::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background: linear-gradient(90deg, transparent, var(--gold2), var(--gold3), var(--gold2), transparent);
-}
-.amf-logo-text {
-  font-family: 'Cinzel', serif;
-  font-size: 10px; letter-spacing: 5px; color: var(--gold-pale);
-  text-transform: uppercase; opacity: 0.9;
-}
-.amf-dot { width:4px; height:4px; background:var(--gold); border-radius:50%; opacity:0.6; }
-
-/* ── SECTION INTRO ── */
-.section-intro {
-  padding: 52px 28px 20px;
-  text-align: center;
-  position: relative; z-index:1;
-}
-.section-label {
-  font-family: 'Cinzel', serif;
-  font-size: 9px; letter-spacing: 5px;
-  color: var(--gold); text-transform: uppercase;
-  margin-bottom: 10px;
-  opacity: 0; transform: translateY(12px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.section-label.vis { opacity:1; transform:translateY(0); }
-
-.section-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(30px, 9vw, 46px);
-  color: var(--dark); line-height: 1.1;
-  opacity: 0; transform: translateY(16px);
-  transition: opacity 0.8s ease 0.1s, transform 0.8s ease 0.1s;
-}
-.section-title.vis { opacity:1; transform:translateY(0); }
-.section-title em { color: var(--gold); font-style: normal; }
-
-.section-desc {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 17px; color: var(--gray-text);
-  line-height: 1.7; margin-top: 14px;
-  max-width: 340px; margin-inline: auto;
-  opacity:0; transform:translateY(12px);
-  transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
-}
-.section-desc.vis { opacity:1; transform:translateY(0); }
-
-/* ── TIMELINE ── */
-.timeline-wrap {
-  padding: 32px 20px 60px;
-  position: relative; z-index:1;
-  max-width: 480px; margin: 0 auto;
-}
-.timeline-wrap::before {
-  content:''; position:absolute;
-  left: 50%; top: 0; bottom: 60px;
-  width: 1px;
-  background: linear-gradient(180deg, transparent 0%, var(--gold2) 8%, var(--gold2) 92%, transparent 100%);
-  transform: translateX(-50%);
-}
-
-.year-pill {
-  position: relative; z-index:2;
-  text-align:center; margin: 8px 0 28px;
-  opacity:0; transform:scale(0.85);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.year-pill.vis { opacity:1; transform:scale(1); }
-.year-pill span {
-  font-family: 'Cinzel', serif;
-  font-size: 10px; letter-spacing: 4px;
-  color: var(--cream);
-  background: linear-gradient(135deg, var(--dark) 0%, #3a3020 100%);
-  border: 1px solid var(--gold);
-  padding: 6px 18px;
-  display: inline-block;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
-.tl-card {
-  position: relative;
-  width: 46%;
-  margin-bottom: 32px;
-  background: white;
-  border: 1px solid rgba(184,147,58,0.2);
-  box-shadow: 0 2px 12px rgba(90,70,20,0.08), 0 6px 24px rgba(90,70,20,0.04);
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.3s ease;
-}
-.tl-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold3));
-}
-.tl-card.left { margin-left: 3%; transform: translateX(-20px); }
-.tl-card.right { margin-left: auto; margin-right: 3%; transform: translateX(20px); }
-.tl-card.vis { opacity:1; transform: translateX(0); }
-
-.tl-card::after {
-  content:''; position:absolute; top: 18px;
-  width: 10px; height: 10px;
-  background: var(--gold);
-  border: 2px solid var(--cream);
-  border-radius: 50%;
-  box-shadow: 0 0 0 1.5px var(--gold);
-}
-.tl-card.left::after { right: -29px; }
-.tl-card.right::after { left: -29px; }
-
-.tl-card .hline {
-  position:absolute; top:22px; height:1px; opacity:0.4;
-}
-.tl-card.left .hline { right:-18px; width:18px; background: linear-gradient(90deg, transparent, var(--gold)); }
-.tl-card.right .hline { left:-18px; width:18px; background: linear-gradient(90deg, var(--gold), transparent); }
-
-.card-inner { padding: 20px 16px 18px; }
-
-.card-icon {
-  width: 36px; height: 36px;
-  background: linear-gradient(135deg, var(--gold2), var(--gold));
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 12px; font-size: 16px;
-}
-.card-date {
-  font-family: 'Cinzel', serif;
-  font-size: 10.5px; letter-spacing: 2.5px;
-  color: var(--gold); text-transform: uppercase; margin-bottom: 5px;
-}
-.card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px; font-weight: 600;
-  color: var(--dark); line-height: 1.35; margin-bottom: 8px;
-}
-.card-text {
-  font-family: 'Jost', sans-serif;
-  font-size: 14px; font-weight: 400;
-  color: var(--gray-text); line-height: 1.75;
-}
-.card-tag {
-  display:inline-block; margin-top:10px;
-  padding: 3px 10px;
-  background: var(--cream2);
-  border: 1px solid rgba(184,147,58,0.25);
-  font-family: 'Cinzel', serif;
-  font-size: 9px; letter-spacing: 2px;
-  color: var(--gold); text-transform: uppercase;
-}
-
-.card-photo { position: relative; overflow: hidden; border-top: 1px solid rgba(184,147,58,0.25); }
-.card-photo img { width:100%; height:140px; object-fit:cover; object-position:center; display:block; transition: transform 0.6s ease; }
-.card-photo:active img { transform: scale(1.04); }
-.card-photo::after { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(184,147,58,0.15), transparent); pointer-events:none; }
-.card-photo img.photo-4 { object-fit: contain; object-position: left center; background: var(--cream); }
-
-/* ── CLOSING ── */
-.closing {
-  position: relative; z-index:1;
-  background: linear-gradient(135deg, #1E1A14 0%, #2C2315 100%);
-  padding: 52px 32px;
-  text-align: center; overflow: hidden;
-}
-.closing::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:2px;
-  background: linear-gradient(90deg, transparent, var(--gold2), var(--gold3), var(--gold2), transparent);
-}
-.closing-script {
-  font-family: 'Dancing Script', cursive;
-  font-size: clamp(26px, 7vw, 36px);
-  color: var(--gold3); margin-bottom: 16px;
-  opacity:0; transform:translateY(16px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.closing-script.vis { opacity:1; transform:translateY(0); }
-.closing-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(15px, 4vw, 18px);
-  color: rgba(242,228,192,0.85);
-  line-height: 1.8;
-  max-width: 320px; margin: 0 auto 20px;
-  opacity:0; transform:translateY(12px);
-  transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
-}
-.closing-quote.vis { opacity:1; transform:translateY(0); }
-.closing-author {
-  font-family: 'Cinzel', serif;
-  font-size: 9px; letter-spacing: 4px;
-  color: var(--gold); text-transform: uppercase;
-  opacity:0; transition: opacity 0.8s ease 0.3s;
-}
-.closing-author.vis { opacity:0.8; }
-
-.closing-name {
-  margin-top: 14px;
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 3.5px;
-  color: rgba(232,201,122,0.8);
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
-}
-.closing-name.vis { opacity: 0.88; transform: translateY(0); }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  padding: 20px 24px; text-align:center;
-  position:relative; z-index:1;
-  border-top: 1px solid rgba(184,147,58,0.2);
-}
-footer p {
-  font-family: 'Jost', sans-serif;
-  font-size: 10px; letter-spacing: 3px;
-  color: rgba(242,228,192,0.4); text-transform: uppercase;
-}
-
-.footer-name {
-  margin-top: 8px;
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: rgba(232,201,122,0.72);
-  text-transform: uppercase;
-}
-
-@keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
-
-.particle {
-  position:fixed; border-radius:50%;
-  background: var(--gold); opacity:0;
-  pointer-events:none; z-index:0;
-  animation: floatP linear infinite;
-}
-@keyframes floatP {
-  0%  {opacity:0;transform:translateY(0) scale(0)}
-  10% {opacity:0.12;transform:translateY(-10px) scale(1)}
-  90% {opacity:0.06}
-  100%{opacity:0;transform:translateY(-120px) scale(0.5)}
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -432,7 +17,7 @@ footer p {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">
-    <img src="images-Photoroom.png" alt="Símbolo AMF" loading="eager" decoding="async">
+    <img src="images/logo-ontopsicologia.png" alt="Símbolo AMF" loading="eager" decoding="async">
   </div>
   <p class="hero-script">Minha Jornada</p>
   <h1 class="hero-title">na AMF & FOIL</h1>
@@ -475,7 +60,7 @@ footer p {
       <span class="card-tag">Início</span>
     </div>
     <div class="card-photo">
-      <img src="1.jpeg" alt="Chegada na AMF" loading="lazy" decoding="async">
+      <img src="images/1.jpeg" alt="Chegada na AMF" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -491,7 +76,7 @@ footer p {
       <span class="card-tag">FOIL</span>
     </div>
     <div class="card-photo">
-      <img src="2.jpeg" alt="Primeiro trabalho em marketing" loading="lazy" decoding="async">
+      <img src="images/2.jpeg" alt="Primeiro trabalho em marketing" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -505,7 +90,7 @@ footer p {
       <span class="card-tag">Tecnologia</span>
     </div>
     <div class="card-photo">
-      <img src="3.jpeg" alt="Participação no Code Race" loading="lazy" decoding="async">
+      <img src="images/3.jpeg" alt="Participação no Code Race" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -519,7 +104,7 @@ footer p {
       <span class="card-tag">Desenvolvimento</span>
     </div>
     <div class="card-photo">
-      <img class="photo-4" src="4.jpeg" alt="Processo e conquista no TecnoAMF" loading="lazy" decoding="async">
+      <img class="photo-4" src="images/4.jpeg" alt="Processo e conquista no TecnoAMF" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -533,7 +118,7 @@ footer p {
       <span class="card-tag">FOIL</span>
     </div>
     <div class="card-photo">
-      <img src="5.jpeg" alt="Viagem FOIL Brasil em São Paulo" loading="lazy" decoding="async">
+      <img src="images/5.jpeg" alt="Viagem FOIL Brasil em São Paulo" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -549,7 +134,7 @@ footer p {
       <span class="card-tag">Evolução</span>
     </div>
     <div class="card-photo">
-      <img src="6.jpeg" alt="Participação no BytePapo" loading="lazy" decoding="async">
+      <img src="images/6.jpeg" alt="Participação no BytePapo" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -567,14 +152,6 @@ footer p {
   <p>AMF · Fundação Antonio Meneghetti · Santa Maria, RS</p>
 </footer>
 
-<script>
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(
-  '.tl-card, .year-pill, .section-label, .section-title, .section-desc, .closing-script, .closing-quote, .closing-author, .closing-name'
-).forEach(el => io.observe(el));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
